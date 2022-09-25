@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>TestNGFram</name>
+=======
+	<name>TestNGFrame</name>
+>>>>>>> 1f0e382614a42aa883dbbc1e89223ce5f7b7908d
 	<comment></comment>
 	<projects>
 	</projects>
