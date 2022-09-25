@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.DataProvider;
 
 import TestNGFramework.utils.TestUtils;
 
@@ -27,6 +28,13 @@ public void doSetup() throws IOException {
 		}
 	driver.get(prop.getProperty("siteUrl"));
 }
+  @DataProvider
+  public Object[][] loginData() throws IOException {
+	  return test.readExcelData("Sheet1");
+  }
+
+
+
  @AfterSuite
  public void tearDown() {
 	 driver.close();

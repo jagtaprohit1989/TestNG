@@ -9,26 +9,34 @@ import org.testng.annotations.Test;
 
 public class LoginTest extends BaseIntegration {
 	WebElement email,pass,submit,logOut;
+	String tName;
 	
 	@BeforeMethod
-	public void getXpath() {
+	public void getXpath() throws InterruptedException {
 		email=driver.findElement(By.xpath("//input[@type='text']"));
-		//email.clear();
+		email.clear();
 		pass=driver.findElement(By.xpath("//input[@type='password']"));
-		//pass.clear();
+		pass.clear();
+		
 		submit=driver.findElement(By.xpath("//button[@type='submit']"));
+		Thread.sleep(2000);
 		  }
 	
-	@Test
-	public void doLogin() {
-		email.sendKeys("queuecodes@gmail.com");
-		pass.sendKeys("123456");
+	@Test(dataProvider = "loginData")
+	public void doLogin(String testName,String uName,String uPass) {
+		tName=testName;
+		email.sendKeys(uName);
+		pass.sendKeys(uPass);
 		submit.click();
 	}
 	@AfterMethod
 	public void doAssert() {
-		String actResult=driver.getTitle();
+	String actResult=driver.getTitle();
+		if (tName.equals("Both are Valid")){
 		Assert.assertEquals(actResult, "Queue Codes | Dashboard");
+	}else {
+		Assert.assertEquals(actResult, "Queue Codes | Log in");
+		}
 	}
 	}
 
