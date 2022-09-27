@@ -14,9 +14,10 @@ import TestNGFramework.utils.TestUtils;
 public class BaseIntegration {
 WebDriver driver;
 Properties prop;
+String tName;
 TestUtils test=new TestUtils();
 
-@BeforeSuite
+
 public void doSetup() throws IOException {
 	prop=test.readProp();
 	if(prop.getProperty("browser").equals("chrome")) {
@@ -30,13 +31,11 @@ public void doSetup() throws IOException {
 }
   @DataProvider
   public Object[][] loginData() throws IOException {
-	  return test.readExcelData("Sheet1");
+	  return test.readExcelData("Sheet2");
   }
-
-
-
- @AfterSuite
- public void tearDown() {
-	 driver.close();
- }
+ @DataProvider
+ public Object[][] registerData() throws IOException {
+ return test.readExcelData("RegisterData");
+   }
 }
+ 

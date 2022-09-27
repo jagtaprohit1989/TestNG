@@ -5,11 +5,11 @@
     <classes>
       <class name="TestNGFramework.tests.LoginTest">
         <methods>
-          <include name="doLogin"/>
+          <include name="getSetup"/>
+          <include name="doLogin" invocation-numbers="0"/>
           <include name="getXpath"/>
           <include name="doAssert"/>
           <include name="tearDown"/>
-          <include name="doSetup"/>
         </methods>
       </class> <!-- TestNGFramework.tests.LoginTest -->
     </classes>

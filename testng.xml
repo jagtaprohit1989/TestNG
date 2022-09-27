@@ -5,6 +5,7 @@
     <classes>
      
       <class name="TestNGFramework.tests.LoginTest"/>
+        <class name="TestNGFramework.tests.RegisterTest"/>
     </classes>
   </test> <!-- Test -->
    <listeners>

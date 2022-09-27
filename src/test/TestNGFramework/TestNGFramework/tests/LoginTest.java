@@ -1,31 +1,38 @@
 package TestNGFramework.tests;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 public class LoginTest extends BaseIntegration {
-	WebElement email,pass,submit,logOut;
+	WebElement email1,pass,submit,logOut;
 	String tName;
 	
+	@BeforeSuite
+	public void getSetup() throws IOException{
+		doSetup();
+	}
+	
 	@BeforeMethod
-	public void getXpath() throws InterruptedException {
-		email=driver.findElement(By.xpath("//input[@type='text']"));
-		email.clear();
+	public void getXpath()  {
+		email1=driver.findElement(By.xpath("//input[@type='text']"));
+		email1.clear();
 		pass=driver.findElement(By.xpath("//input[@type='password']"));
-		pass.clear();
-		
+		pass.clear();		
 		submit=driver.findElement(By.xpath("//button[@type='submit']"));
-		Thread.sleep(2000);
-		  }
+		 }
 	
 	@Test(dataProvider = "loginData")
 	public void doLogin(String testName,String uName,String uPass) {
 		tName=testName;
-		email.sendKeys(uName);
+		email1.sendKeys(uName);
 		pass.sendKeys(uPass);
 		submit.click();
 	}
@@ -38,6 +45,11 @@ public class LoginTest extends BaseIntegration {
 		Assert.assertEquals(actResult, "Queue Codes | Log in");
 		}
 	}
-	}
+	
+	@AfterSuite
+	 public void tearDown() {
+		 driver.close();
+	 }
+}
 
 
