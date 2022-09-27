@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>TestNGFram2</name>
+=======
+<<<<<<< HEAD
+	<name>TestNGFram</name>
+=======
+	<name>TestNGFrame</name>
+>>>>>>> 1f0e382614a42aa883dbbc1e89223ce5f7b7908d
+>>>>>>> 0d393b466b5484b0ae684c84c3154bfec34af0c3
 	<comment></comment>
 	<projects>
 	</projects>
